@@ -6,8 +6,8 @@ class MenuItem extends HTMLElement{
     }
 
     connectedCallback(){
-          this.innerHTML = ` <div id="menu">
-                            </div>
+          this.innerHTML = ` <nav id="menu" class="navbar navbar-expand-lg navbar-dark bg-primary">
+                            </nav>
                           `
     }
 
