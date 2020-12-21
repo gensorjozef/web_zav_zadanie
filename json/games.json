@@ -1,0 +1,29 @@
+{
+  "games":
+  [
+    {
+      "src": "jozoGame.html",
+      "autor": "Jožo",
+      "nazov": "Názov hry Jožo",
+      "popis": "Dlhší popis hry Jožo"
+    },
+    {
+      "src": "vladoGame.html",
+      "autor": "Vlado",
+      "nazov": "Názov hry Vlado",
+      "popis": "Dlhší popis hry Vlado"
+    },
+    {
+      "src": "emaGame.html",
+      "autor": "Ema",
+      "nazov": "Názov hry Ema",
+      "popis": "Dlhší popis hry Ema"
+    },
+    {
+      "src": "tomasGame.html",
+      "autor": "Tomáš",
+      "nazov": "Názov hry Tomáš",
+      "popis": "Dlhší popis hry Tomáš"
+    }
+  ]
+}
