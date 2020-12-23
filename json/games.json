@@ -14,10 +14,10 @@
       "popis": "Dlhší popis hry Vlado"
     },
     {
-      "src": "emaGame.html",
-      "autor": "Ema",
-      "nazov": "Názov hry Ema",
-      "popis": "Dlhší popis hry Ema"
+      "src": "puzzleFrance.html",
+      "autor": "Emma",
+      "nazov": "Puzzle France",
+      "popis": "Given 12 uneven parts of map, find their correct arrangement to form France regions."
     },
     {
       "src": "tomasGame.html",
