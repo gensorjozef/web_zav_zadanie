@@ -2,25 +2,25 @@
   "games":
   [
     {
-      "src": "jozoGame.html",
+      "src": "jozo_Game.html",
       "autor": "Jožo",
       "nazov": "Názov hry Jožo",
       "popis": "Dlhší popis hry Jožo"
     },
     {
-      "src": "vladoGame.html",
+      "src": "vlado_Game.html",
       "autor": "Vlado",
       "nazov": "Názov hry Vlado",
       "popis": "Dlhší popis hry Vlado"
     },
     {
-      "src": "puzzleFrance.html",
+      "src": "puzzle_France.html",
       "autor": "Emma",
       "nazov": "Puzzle France",
       "popis": "Given 12 uneven parts of map, find their correct arrangement to form France regions."
     },
     {
-      "src": "tomasGame.html",
+      "src": "tomas_Game.html",
       "autor": "Tomáš",
       "nazov": "Názov hry Tomáš",
       "popis": "Dlhší popis hry Tomáš"
