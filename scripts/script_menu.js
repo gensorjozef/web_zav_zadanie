@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () =>{
 
             });
             createMenu(menu , listAttr)
+            var cas = document.getElementById("datum")
+            menu.appendChild(cas)
             // jQuery code
 
             //////////////////////// Prevent closing from click inside dropdown
@@ -45,6 +47,38 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     }); // jquery end
 })
+
+
+function addCalendar(container){
+
+    fetch("../json/slovak_names.json")
+        .then(response => response.json())
+        .then(json => {
+            var slovakNames =  json
+            console.log(slovakNames)
+            const date = new Date();
+
+
+            const headerContentDate = document.createElement("p");
+            headerContentDate.className = "text-md-left col font-weight-bold";
+            headerContentDate.innerText = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`+ " " +
+                `${slovakNames[date.getMonth()][date.getDate()]}` ;
+            // headerContentDate.innerText = `${slovakNames[date.getMonth()][date.getDate()]}`;
+            container.appendChild(headerContentDate)
+            // const headerContentName = document.createElement("p");
+            // headerContentName.className = "text-md-right col font-weight-bold";
+            //
+            // container.appendChild(headerContentName)
+            });
+
+
+
+
+
+
+
+}
+
 
 function createMenu(menu, listAttr){
 
@@ -80,6 +114,9 @@ function createMenu(menu, listAttr){
     let dropdown2 = document.createElement("li")
     dropdown.classList = "nav-item dropdown"
 
+    let dropdown3 = document.createElement("li")
+    dropdown.classList = "nav-item dropdown"
+
     let listItem = document.createElement("a")
     listItem.classList = "nav-link dropdown-toggle"
     listItem.setAttribute("data-toggle","dropdown")
@@ -92,12 +129,20 @@ function createMenu(menu, listAttr){
     dropdown2.appendChild(listItem2)
 
 
+
+    addCalendar(dropdown3)
+
     dropdown.appendChild(listAttr)
 
     list.appendChild(dropdown)
+    list2.appendChild(dropdown3)
     list2.appendChild(dropdown2)
+
     item.appendChild(list)
     item.appendChild(list2)
+
+
+
     menu.appendChild(item)
 
 

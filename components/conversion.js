@@ -57,7 +57,7 @@ class ConversionDateName extends HTMLElement
 
     async fetchJson()
     {
-        const response = await fetch("./slovak_names.json");
+        const response = await fetch("../json/slovak_names.json");
 
         this._slovakNames = await response.json()
     }
@@ -74,7 +74,7 @@ class ConversionDateName extends HTMLElement
         const cardHeader = document.createElement("div");
         cardHeader.className = "card-header row";
         const date = new Date();
-        // console.log(this._slovakNames)
+
 
         const headerContentDate = document.createElement("p");
         headerContentDate.className = "text-md-left col font-weight-bold";
