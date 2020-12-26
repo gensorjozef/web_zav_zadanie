@@ -219,7 +219,6 @@ class ConversionDateName extends HTMLElement
                 this._inputName = input.value;
             }
         }
-
         return div;
     }
 

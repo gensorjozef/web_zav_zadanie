@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a25ed0da-39bb-4109-929d-f6287708f284" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/MenuItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MenuItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/scriptMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/scriptMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MenuItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/menu_item.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/conversion.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/conversion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/scriptMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/script_menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/styleMenu.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style_menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/emaGame.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/ema_game.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vladoGame.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/vladoGame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jozoGame.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/jozo_game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/tomasGame.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/tomas_game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vladoGame.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/vlado_game.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +66,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -56,6 +86,7 @@
       <updated>1608478997862</updated>
       <workItem from="1608478998978" duration="6857000" />
       <workItem from="1608498676935" duration="11663000" />
+      <workItem from="1608976202530" duration="848000" />
     </task>
     <servers />
   </component>
