@@ -71,7 +71,13 @@ function createMenu(menu, listAttr){
     let list = document.createElement("ul")
     list.classList = "navbar-nav"
 
+    let list2 = document.createElement("ul")
+    list2.classList = "navbar-nav ml-auto"
+
     let dropdown = document.createElement("li")
+    dropdown.classList = "nav-item dropdown"
+
+    let dropdown2 = document.createElement("li")
     dropdown.classList = "nav-item dropdown"
 
     let listItem = document.createElement("a")
@@ -81,12 +87,17 @@ function createMenu(menu, listAttr){
     listItem.textContent = "  Games  "
     dropdown.appendChild(listItem)
 
-
+    let listItem2 = document.createElement("visit-counter")
+    listItem2.classList = "nav "
+    dropdown2.appendChild(listItem2)
 
 
     dropdown.appendChild(listAttr)
+
     list.appendChild(dropdown)
+    list2.appendChild(dropdown2)
     item.appendChild(list)
+    item.appendChild(list2)
     menu.appendChild(item)
 
 
