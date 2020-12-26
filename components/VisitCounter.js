@@ -1,3 +1,6 @@
+// Pridanie do html - <visit-counter></visit-counter>
+// Pocita pristup na kazdu podstranku kde je pocitadlo pridane (vsetko spolu)
+
 // Ziskanie, zvysenie a ulozenie pocitadla
 
 let name = "counter";
