@@ -1,17 +1,17 @@
 // Ziskanie, zvysenie a ulozenie pocitadla
 
-    let name = "counter";
-    //reset(name);
+let name = "counter";
+//reset(name);
 
-    let counter = parseInt(read(name));
+let counter = parseInt(read(name));
 
-    if(counter){
-        counter=counter+1;
-    } else {
-        counter = 1;
-    }
+if(counter){
+    counter=counter+1;
+} else {
+    counter = 1;
+}
 
-    write(name, counter);
+write(name, counter);
 
 // Metody pre webstorage
 
