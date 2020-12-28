@@ -42,7 +42,7 @@ class ConversionDateName extends HTMLElement
                 border-color: transparent black transparent transparent;
             }
             .card {
-                width: 60rem;
+                width: 55rem;
                 height: auto;
             }
             </style>
@@ -67,25 +67,27 @@ class ConversionDateName extends HTMLElement
         const div = document.createElement("div");
 
         const card = document.createElement("div");
-        card.setAttribute("class","card mt-5 mb-5");
-        card.style.width = "600px";
-        card.style.height = "auto";
+        card.setAttribute("class","card mb-5");
 
         const cardHeader = document.createElement("div");
-        cardHeader.className = "card-header row";
+        cardHeader.className = "card-header";
         const date = new Date();
 
+        const divHeaderContent = document.createElement("div");
+        divHeaderContent.className = "row";
 
         const headerContentDate = document.createElement("p");
-        headerContentDate.className = "text-md-left col font-weight-bold";
+        headerContentDate.className = "text-left col-md-6 font-weight-bold";
         headerContentDate.innerText = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 
         const headerContentName = document.createElement("p");
-        headerContentName.className = "text-md-right col font-weight-bold";
+        headerContentName.className = "text-right col-md-6 font-weight-bold";
         headerContentName.innerText = `${this._slovakNames[date.getMonth()][date.getDate()]}`;
 
-        cardHeader.appendChild(headerContentDate)
-        cardHeader.appendChild(headerContentName)
+        divHeaderContent.appendChild(headerContentDate);
+        divHeaderContent.appendChild(headerContentName);
+
+        cardHeader.appendChild(divHeaderContent);
 
         card.appendChild(cardHeader);
 

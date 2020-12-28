@@ -51,25 +51,25 @@ document.addEventListener("DOMContentLoaded", () =>{
 
 function addCalendar(container){
 
-    fetch("../json/slovak_names.json")
-        .then(response => response.json())
-        .then(json => {
-            var slovakNames =  json
-            console.log(slovakNames)
-            const date = new Date();
-
-
-            const headerContentDate = document.createElement("p");
-            headerContentDate.className = "text-md-left col font-weight-bold";
-            headerContentDate.innerText = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`+ " " +
-                `${slovakNames[date.getMonth()][date.getDate()]}` ;
-            // headerContentDate.innerText = `${slovakNames[date.getMonth()][date.getDate()]}`;
-            container.appendChild(headerContentDate)
-            // const headerContentName = document.createElement("p");
-            // headerContentName.className = "text-md-right col font-weight-bold";
-            //
-            // container.appendChild(headerContentName)
-            });
+    // fetch("../json/slovak_names.json")
+    //     .then(response => response.json())
+    //     .then(json => {
+    //         var slovakNames =  json
+    //         console.log(slovakNames)
+    //         const date = new Date();
+    //
+    //
+    //         const headerContentDate = document.createElement("p");
+    //         headerContentDate.className = "text-md-left col font-weight-bold";
+    //         headerContentDate.innerText = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`+ " " +
+    //             `${slovakNames[date.getMonth()][date.getDate()]}` ;
+    //         // headerContentDate.innerText = `${slovakNames[date.getMonth()][date.getDate()]}`;
+    //         container.appendChild(headerContentDate)
+    //         // const headerContentName = document.createElement("p");
+    //         // headerContentName.className = "text-md-right col font-weight-bold";
+    //         //
+    //         // container.appendChild(headerContentName)
+    //         });
 
 
 

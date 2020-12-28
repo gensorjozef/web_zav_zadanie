@@ -3,31 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
             crossorigin="anonymous"></script>
 
     <!-- Bootstrap files (jQuery first, then Popper.js, then Bootstrap JS) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-    <script src="../components/conversion.js"></script>
-    <script src="../components/VisitCounter.js"></script>
-    <script src="../components/menu_item.js"></script>
-
     <link rel="stylesheet" href="../styles/style_menu.css">
 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 
-
+    <script defer src="../components/conversion.js"></script>
+    <script defer src="../components/visit_counter.js"></script>
+    <script defer src="../components/menu_item.js"></script>
+    <script defer src="../scripts/script_menu.js"></script>
 </head>
-
 <body>
-
-
-
-
-
 <menu-item></menu-item>
-<conversion-date-name></conversion-date-name>
+<div class="mt-5 d-flex justify-content-center">
+    <conversion-date-name></conversion-date-name>
+</div>
 
 <!--    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">-->
 
@@ -90,7 +87,6 @@
 
 
 
-<script src="../scripts/script_menu.js"></script>
 
 </body>
 </html>
