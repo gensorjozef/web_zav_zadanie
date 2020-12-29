@@ -20,8 +20,6 @@ document.addEventListener("DOMContentLoaded", () =>{
 
             });
             createMenu(menu , listAttr)
-            var cas = document.getElementById("datum")
-            menu.appendChild(cas)
             // jQuery code
 
             //////////////////////// Prevent closing from click inside dropdown

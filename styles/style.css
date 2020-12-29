@@ -1,0 +1,21 @@
+#breadcrumbs {
+    padding: 10px 14px;
+    list-style: none;
+    background-color: #007bff;
+    display: inline;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+
+#breadcrumbs a {
+    color: ghostwhite;
+    text-decoration: none;
+}
+#breadcrumbs a:hover {
+    color: darkblue;
+    text-decoration: underline;
+}
+body{
+    background-color: ghostwhite;
+}
