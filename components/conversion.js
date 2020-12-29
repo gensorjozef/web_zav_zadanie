@@ -1,7 +1,8 @@
 
 class ConversionDateName extends HTMLElement
 {
-    constructor() {
+    constructor()
+    {
         super();
 
         this._matchRegex = 1;
@@ -50,7 +51,8 @@ class ConversionDateName extends HTMLElement
         `;
     }
 
-    async connectedCallback() {
+    async connectedCallback()
+    {
         await this.fetchJson()
         this._formCard = this.createCard(this._slovakNames);
         this.shadow.appendChild(this._formCard);
@@ -58,57 +60,88 @@ class ConversionDateName extends HTMLElement
 
     async fetchJson()
     {
-        // const response = await fetch("../json/slovak_names.json");
         const response = await fetch("../json/names.json");
 
         this._slovakNames = await response.json();
         this._slovakNames = this._slovakNames["slovakNames"];
     }
 
-    searchName(day, month) {
-        for (let name = 0; name < this._slovakNames.length; name++) {
-             let parsedMonth = this._slovakNames[name]["den"].slice(0, 2);
-             let parsedDay = this._slovakNames[name]["den"].slice(2, 4);
+    searchName(day, month)
+    {
+        let result = "";
 
-             if ((parsedMonth === month.toString() || month.toString() === parsedMonth[1]) && (parsedDay === day.toString()) || day === parsedDay[1]) {
-                 if (name === 0 && this._selectedLanguage === "SKd") {
-                     return this._slovakNames[name]["SKsviatky"];
-                 } else if (name === 0 && this._selectedLanguage === "CZ") {
-                     return this._slovakNames[name]["CZsviatky"];
-                 } else {
-                     return this._slovakNames[name][this._selectedLanguage];
+        for (let name = 0; name < this._slovakNames.length; name++) {
+             let parsedMonth = parseInt(this._slovakNames[name]["den"].slice(0, 2));
+             let parsedDay = parseInt(this._slovakNames[name]["den"].slice(2, 4));
+
+             if (parsedMonth === parseInt(month) && parsedDay === parseInt(day)) {
+                 if (this._selectedLanguage === "SKd" && (this._slovakNames[name]["SKsviatky"] !== undefined)) {
+                     result = this._slovakNames[name]["SKsviatky"];
                  }
+                 if (this._selectedLanguage === "CZ" && (this._slovakNames[name]["CZsviatky"] !== undefined)) {
+                     result = this._slovakNames[name]["CZsviatky"];
+                 }
+                 if (this._selectedLanguage === "SKd" && (this._slovakNames[name]["SKdni"] !== undefined)) {
+                     result = this._slovakNames[name]["SKdni"];
+                 }
+                 if ((this._slovakNames[name][this._selectedLanguage] !== undefined)) {
+                     result = `${this._slovakNames[name][this._selectedLanguage]} \n${result}`;
+                 }
+                 break;
              }
         }
+        return result;
     }
 
-    searchDate(name) {
+    searchDate(name)
+    {
         const normalizedName = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-        let result = "Name not recognized in any calendar";
-        let normalizedRecord;
+        let result = "";
+        let ret = ``;
 
         for (let record = 0; record < Object.keys(this._slovakNames).length; record++) {
-            if (record === 0 && this._selectedLanguage === "SKd") {
-                normalizedRecord = this._slovakNames[record]["SKsviatky"].normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-            } else if (record === 0 && this._selectedLanguage === "CZ") {
-                normalizedRecord = this._slovakNames[record]["CZsviatky"].normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-            } else {
-                if (this._slovakNames[record][this._selectedLanguage] === undefined) {
-                    continue;
+            if (this._selectedLanguage === "SKd" && (this._slovakNames[record]["SKsviatky"] !== undefined)) {
+                result = this.findNameInCurrentDayNames(normalizedName, "SKsviatky", record);
+                if (result !== "Name not recognized in this calendar") {
+                    ret = `${ret} \n${result}`;
                 }
-                normalizedRecord = this._slovakNames[record][this._selectedLanguage].normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
             }
-            const currentDayNames = normalizedRecord.split(", ");
-
-            if (currentDayNames.includes(normalizedName)) {
-                let parsedMonth = this._slovakNames[record]["den"].slice(0, 2);
-                let parsedDay = this._slovakNames[record]["den"].slice(2, 4);
-
-                result = `${parsedDay}.${(parsedMonth)}.`;
-                break;
+            if (this._selectedLanguage === "CZ" && (this._slovakNames[record]["CZsviatky"] !== undefined)) {
+                result = this.findNameInCurrentDayNames(normalizedName, "CZsviatky", record);
+                if (result !== "Name not recognized in this calendar") {
+                    ret = `${ret} \n${result}`;
+                }
+            }
+            if (this._selectedLanguage === "SKd" && (this._slovakNames[record]["SKdni"] !== undefined)) {
+                result = this.findNameInCurrentDayNames(normalizedName, "SKdni", record);
+                if (result !== "Name not recognized in this calendar") {
+                    ret = `${ret} \n${result}`;
+                }
+            }
+            if (this._slovakNames[record][this._selectedLanguage] !== undefined) {
+                result = this.findNameInCurrentDayNames(normalizedName, this._selectedLanguage, record)
+                if (result !== "Name not recognized in this calendar") {
+                    ret = `${ret} \n${result}`;
+                }
             }
         }
-        return result;
+        return ret;
+    }
+
+    findNameInCurrentDayNames(normalizedName, field, record)
+    {
+        let normalizedRecord = this._slovakNames[record][field].normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        let currentDayNames = normalizedRecord.split(", ");
+
+        if (currentDayNames.includes(normalizedName)) {
+            console.log(currentDayNames)
+            let parsedMonth = this._slovakNames[record]["den"].slice(0, 2);
+            let parsedDay = this._slovakNames[record]["den"].slice(2, 4);
+            console.log(parsedDay + " " + parsedMonth + " "  + field)
+
+            return `${parsedDay}.${parsedMonth}.`;
+        }
+        return "Name not recognized in this calendar";
     }
 
     createCard()
@@ -133,7 +166,13 @@ class ConversionDateName extends HTMLElement
         const headerContentName = document.createElement("p");
         headerContentName.className = "text-right col-md-6 font-weight-bold";
         headerContentName.className = "text-right col-md-6 font-weight-bold";
-        headerContentName.innerText = `${this.searchName(date.getDate(), date.getMonth() + 1)}`;
+
+        const todayName = this.searchName(date.getDate(), date.getMonth() + 1);
+        if (todayName === "") {
+            headerContentName.innerText = `No result in this calenader`;
+        } else {
+            headerContentName.innerText = `${todayName}`;
+        }
 
         divHeaderContent.appendChild(headerContentDate);
         divHeaderContent.appendChild(headerContentName);
@@ -221,7 +260,7 @@ class ConversionDateName extends HTMLElement
 
           if (this._matchRegex) {
               const parsedInputDate = this._inputDate.split(".");
-              console.log(parsedInputDate)
+
               resultDateToName.innerHTML = `${this.searchName(parsedInputDate[0], parsedInputDate[1])}`;
           } else {
               resultDateToName.innerHTML = `Date is not valid, conversion can not be performed`;
@@ -242,7 +281,7 @@ class ConversionDateName extends HTMLElement
         resultNameToDate.placeholder = "Here will appear result of conversion.";
         resultNameToDate.innerText = "";
 
-        const inputName = this.createFormGroup("Find date for a given name", "text", "name", "Enter name");
+        const inputName = this.createFormGroup("Find date for a given name or holiday", "text", "name", "Enter name");
 
         const nameToDateBtn = document.createElement("button");
         nameToDateBtn.id = "convertButton";
@@ -251,7 +290,13 @@ class ConversionDateName extends HTMLElement
         nameToDateBtn.onclick = (event) => {
             event.preventDefault();
 
-            resultNameToDate.innerText = `${this.searchDate(this._inputName)}`;
+            const findDate = this.searchDate(this._inputName);
+
+            if (findDate === "") {
+                resultNameToDate.innerText = `Input not recognized in this calendar`;
+            } else {
+                resultNameToDate.innerText = `${findDate}`;
+            }
         };
 
         nameConversionDiv.appendChild(inputName);
