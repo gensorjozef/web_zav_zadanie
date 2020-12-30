@@ -34,11 +34,23 @@ function read(name){
 // Webkomponent, pocitadlo sa vypisuje do <p>
 
 class VisitCounter extends HTMLElement{
+    constructor() {
+        super();
+    }
 
-    connectedCallback(){
-        this.innerHTML = '<p id="visit-counter"></p>';
-        $("visit-counter").text("Počet návštev: " + counter)
-    };
+    connectedCallback() {
+        this.innerHTML = `
+            <style>
+                #visit-counter {
+                    color: white;
+                };    
+            </style>
+            <p id="visit-counter" class="navbar-brand""></p>
+        `;
+
+        $("visit-counter").text("Počet návštev: " + counter);
+    }
 }
+
 
 customElements.define('visit-counter', VisitCounter);

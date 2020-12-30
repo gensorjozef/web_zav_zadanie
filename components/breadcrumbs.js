@@ -52,11 +52,16 @@ function saveBreadcrumbs(data){
 // Create
 // Vytvorenie stringu, pouzivany pri vytvarani webkomponentu
 function createBreadcrumbs(data){
-	let string = "<div id='breadcrumbs'>";
-	for (var i = 0; i < data[0].length; i++) {
-		string += "<a href='"+data[1][i]+"'>"+data[0][i]+"</a>>"
+	let string = "<style>#breadcrumbs { margin-top: 20px }</style><div id='breadcrumbs'>";
+
+	for (let i = 0; i < data[0].length; i++) {
+		string += "<a href='" + data[1][i] + "'>" + data[0][i] + " </a>"
+		if (i < data[0].length - 1) {
+			string += " > ";
+		}
 	}
 	string += "</div>";
+
 	return string;
 }
 

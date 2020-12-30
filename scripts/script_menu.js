@@ -13,11 +13,6 @@ document.addEventListener("DOMContentLoaded", () =>{
             json.games.forEach((game, index) => {
                 createGameAuthor(game, listAttr, index)
 
-
-
-
-
-
             });
             createMenu(menu , listAttr)
             // jQuery code
@@ -41,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () =>{
             }
         })
     $(document).ready(function() {
-
 
     }); // jquery end
 })
@@ -68,13 +62,6 @@ function addCalendar(container){
     //         //
     //         // container.appendChild(headerContentName)
     //         });
-
-
-
-
-
-
-
 }
 
 
@@ -123,10 +110,9 @@ function createMenu(menu, listAttr){
     dropdown.appendChild(listItem)
 
     let listItem2 = document.createElement("visit-counter")
+    listItem2.style.color = "white";
     listItem2.classList = "nav "
     dropdown2.appendChild(listItem2)
-
-
 
     addCalendar(dropdown3)
 
@@ -139,12 +125,7 @@ function createMenu(menu, listAttr){
     item.appendChild(list)
     item.appendChild(list2)
 
-
-
     menu.appendChild(item)
-
-
-
 }
 
 function createGameAuthor(game, list, index){
@@ -160,6 +141,7 @@ function createGameAuthor(game, list, index){
     createGameName(game, second)
     list.appendChild(second)
 }
+
 function createGameName(game, list){
     let first = document.createElement("ul")
     first.classList = "submenu dropdown-menu"

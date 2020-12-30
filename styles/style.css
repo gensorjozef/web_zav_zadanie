@@ -1,19 +1,15 @@
 #breadcrumbs {
-    padding: 10px 14px;
+    padding-left: 20px;
     list-style: none;
-    background-color: #007bff;
     display: inline;
     font-size: 18px;
     border-radius: 5px;
 }
-
-
 #breadcrumbs a {
-    color: ghostwhite;
+    color: #6c6f7f;
     text-decoration: none;
 }
 #breadcrumbs a:hover {
-    color: darkblue;
     text-decoration: underline;
 }
 body{

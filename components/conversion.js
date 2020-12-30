@@ -148,7 +148,8 @@ class ConversionDateName extends HTMLElement
         card.setAttribute("class","card mb-5");
 
         const cardHeader = document.createElement("div");
-        cardHeader.className = "card-header";
+        cardHeader.className = "card-header text-black";
+        cardHeader.style.backgroundColor = "#eef0f2";
 
         const divHeaderContent = document.createElement("div");
         divHeaderContent.className = "row";
@@ -156,11 +157,11 @@ class ConversionDateName extends HTMLElement
         const date = new Date();
 
         const headerContentDate = document.createElement("p");
-        headerContentDate.className = "text-right col-md-6 font-weight-bold";
+        headerContentDate.className = "text-right col-md-3 font-weight-bold";
         headerContentDate.innerText = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 
         const headerContentName = document.createElement("p");
-        headerContentName.className = "text-left col-md-6 font-weight-bold";
+        headerContentName.className = "text-left col-md-9 font-weight-bold";
 
         const todayName = this.searchName(date.getDate(), date.getMonth() + 1);
         if (todayName === "") {
@@ -237,7 +238,7 @@ class ConversionDateName extends HTMLElement
         dropdownLanguageDiv.appendChild(labelLanguage);
 
         const dateConversionDiv = document.createElement("div");
-        dateConversionDiv.className = "col-md-6";
+        dateConversionDiv.className = "col-lg-6";
 
         const borderDateDiv = document.createElement("div");
         borderDateDiv.className = "list-group-item mr-1 ml-1";
@@ -253,7 +254,9 @@ class ConversionDateName extends HTMLElement
 
         const dateToNameBtn = document.createElement("button");
         dateToNameBtn.id = "convertButton";
-        dateToNameBtn.setAttribute("class", "btn btn-secondary mt-3");
+        dateToNameBtn.setAttribute("class", "btn btn-dark mt-3");
+        dateToNameBtn.style.backgroundColor = "#3d5a80";
+        dateToNameBtn.style.borderColor = "#3d5a80";
         dateToNameBtn.innerText = "Konvertovať";
         dateToNameBtn.onclick = (event) => {
           event.preventDefault();
@@ -276,7 +279,7 @@ class ConversionDateName extends HTMLElement
         const nameConversionDiv = document.createElement("div");
         nameConversionDiv.style.borderTop = "1px";
         nameConversionDiv.style.borderColor = "#dfdfdf";
-        nameConversionDiv.className = "col-md-6";
+        nameConversionDiv.className = "col-lg-6";
 
         const borderNameDiv = document.createElement("div");
         borderNameDiv.className = "list-group-item mr-1 ml-1";
@@ -292,7 +295,9 @@ class ConversionDateName extends HTMLElement
 
         const nameToDateBtn = document.createElement("button");
         nameToDateBtn.id = "convertButton";
-        nameToDateBtn.setAttribute("class", "btn btn-secondary mt-3");
+        nameToDateBtn.setAttribute("class", "btn btn-dark mt-3");
+        nameToDateBtn.style.backgroundColor = "#3d5a80";
+        nameToDateBtn.style.borderColor = "#3d5a80";
         nameToDateBtn.innerText = "Konvertovať";
         nameToDateBtn.onclick = (event) => {
             event.preventDefault();

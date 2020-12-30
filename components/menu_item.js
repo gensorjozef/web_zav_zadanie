@@ -6,12 +6,15 @@ class MenuItem extends HTMLElement{
     }
 
     connectedCallback(){
-          this.innerHTML = ` <nav id="menu" class="navbar navbar-expand-lg navbar-dark bg-primary">
-                            </nav>
-                          `
+        this.innerHTML = `
+             <style>
+             #menu {
+                background-color: #274472;
+             };
+             </style>
+             <nav id="menu" class="navbar navbar-expand-lg navbar-dark"></nav>
+        `;
     }
-
-
 }
 
 window.customElements.define('menu-item', MenuItem);
