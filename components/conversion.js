@@ -164,13 +164,7 @@ class ConversionDateName extends HTMLElement
 
         const card = document.createElement("div");
         card.setAttribute("class","card mb-5");
-        // card.style.width = "60rem";
-        // card.style = `@media only screen and (max-width: 983px) {
-        //                 card {
-        //                     width: 30rem;
-        //                 }
-        // }`;
-        //
+
         const cardHeader = document.createElement("div");
         cardHeader.className = "card-header text-black";
         cardHeader.style.backgroundColor = "#eef0f2";
@@ -266,7 +260,6 @@ class ConversionDateName extends HTMLElement
 
         const borderDateDiv = document.createElement("div");
         borderDateDiv.className = "list-group-item mr-1 ml-1";
-        borderDateDiv.style.height = "18rem";
 
         const resultDateToName = document.createElement("textarea");
         resultDateToName.className = "form-control w-100 mt-3";
@@ -307,7 +300,6 @@ class ConversionDateName extends HTMLElement
 
         const borderNameDiv = document.createElement("div");
         borderNameDiv.className = "list-group-item mr-1 ml-1";
-        borderNameDiv.style.height = "18rem";
 
         const resultNameToDate = document.createElement("textarea");
         resultNameToDate.className = "form-control w-100 mt-3";
