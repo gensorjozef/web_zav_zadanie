@@ -17,6 +17,24 @@ class ConversionDateName extends HTMLElement
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
             <style>
+                .card {
+                    width: 60rem;
+                }
+                @media only screen and (max-width: 983px) {
+                     .card {
+                         width: 50rem;
+                     }
+                }
+                @media only screen and (max-width: 847px) {
+                     .card {
+                         width: 40rem;
+                     }
+                }
+                @media only screen and (max-width: 762px) {
+                     .card {
+                         width: 30rem;
+                     }
+                }
                .tooltip-text {
                 visibility: hidden;
                 width: 300px;
@@ -146,7 +164,13 @@ class ConversionDateName extends HTMLElement
 
         const card = document.createElement("div");
         card.setAttribute("class","card mb-5");
-
+        // card.style.width = "60rem";
+        // card.style = `@media only screen and (max-width: 983px) {
+        //                 card {
+        //                     width: 30rem;
+        //                 }
+        // }`;
+        //
         const cardHeader = document.createElement("div");
         cardHeader.className = "card-header text-black";
         cardHeader.style.backgroundColor = "#eef0f2";

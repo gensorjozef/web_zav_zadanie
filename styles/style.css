@@ -18,3 +18,21 @@ body{
 #card {
     width: 18rem;
 }
+.component-width {
+    width: 60rem;
+}
+@media only screen and (max-width: 983px) {
+    .component-width {
+        width: 50rem;
+    }
+}
+@media only screen and (max-width: 847px) {
+    .component-width {
+        width: 40rem;
+    }
+}
+@media only screen and (max-width: 762px) {
+    .component-width {
+        width: 30rem;
+    }
+}
