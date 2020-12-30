@@ -39,8 +39,3 @@ body{
 #footer{
     justify-content: space-evenly;
 }
-input[type=checkbox][disabled] {
-    background-color: darkblue;
-    color: darkblue;
-    border-color: firebrick;
-}
