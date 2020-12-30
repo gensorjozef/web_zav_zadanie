@@ -36,3 +36,6 @@ body{
         width: 30rem;
     }
 }
+#footer{
+    justify-content: space-evenly;
+}
