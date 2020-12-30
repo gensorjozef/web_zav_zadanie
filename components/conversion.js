@@ -29,7 +29,7 @@ class ConversionDateName extends HTMLElement
                 padding: 10px 0;
                 position: absolute;
                 top: 13%;
-                left: 42%;
+                left: 56%;
                 margin-left: 95px;
                 z-index: 10;
             }
@@ -42,10 +42,6 @@ class ConversionDateName extends HTMLElement
                 border-width: 5px;
                 border-style: solid;
                 border-color: transparent black transparent transparent;
-            }
-            .card {
-                width: 60rem;
-                height: auto;
             }
             </style>
         `;
@@ -102,25 +98,25 @@ class ConversionDateName extends HTMLElement
         for (let record = 0; record < Object.keys(this._slovakNames).length; record++) {
             if (this._selectedLanguage === "SKd" && (this._slovakNames[record]["SKsviatky"] !== undefined)) {
                 result = this.findNameInCurrentDayNames(normalizedName, "SKsviatky", record);
-                if (result !== "Name not recognized in this calendar") {
+                if (result !== "Meno neexistuje v tomto kalendári") {
                     ret = `${ret} \n${result}`;
                 }
             }
             if (this._selectedLanguage === "CZ" && (this._slovakNames[record]["CZsviatky"] !== undefined)) {
                 result = this.findNameInCurrentDayNames(normalizedName, "CZsviatky", record);
-                if (result !== "Name not recognized in this calendar") {
+                if (result !== "Meno neexistuje v tomto kalendári") {
                     ret = `${ret} \n${result}`;
                 }
             }
             if (this._selectedLanguage === "SKd" && (this._slovakNames[record]["SKdni"] !== undefined)) {
                 result = this.findNameInCurrentDayNames(normalizedName, "SKdni", record);
-                if (result !== "Name not recognized in this calendar") {
+                if (result !== "Meno neexistuje v tomto kalendári") {
                     ret = `${ret} \n${result}`;
                 }
             }
             if (this._slovakNames[record][this._selectedLanguage] !== undefined) {
                 result = this.findNameInCurrentDayNames(normalizedName, this._selectedLanguage, record)
-                if (result !== "Name not recognized in this calendar") {
+                if (result !== "Meno neexistuje v tomto kalendári") {
                     ret = `${ret} \n${result}`;
                 }
             }
@@ -141,7 +137,7 @@ class ConversionDateName extends HTMLElement
 
             return `${parsedDay}.${parsedMonth}.`;
         }
-        return "Name not recognized in this calendar";
+        return "Meno neexistuje v tomto kalendári";
     }
 
     createCard()
@@ -160,22 +156,21 @@ class ConversionDateName extends HTMLElement
         const date = new Date();
 
         const headerContentDate = document.createElement("p");
-        headerContentDate.className = "text-left col-md-6 font-weight-bold";
+        headerContentDate.className = "text-right col-md-6 font-weight-bold";
         headerContentDate.innerText = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 
         const headerContentName = document.createElement("p");
-        headerContentName.className = "text-right col-md-6 font-weight-bold";
-        headerContentName.className = "text-right col-md-6 font-weight-bold";
+        headerContentName.className = "text-left col-md-6 font-weight-bold";
 
         const todayName = this.searchName(date.getDate(), date.getMonth() + 1);
         if (todayName === "") {
-            headerContentName.innerText = `No result in this calenader`;
+            headerContentName.innerText = `Meno nebolo nájdené v tomto kalendári`;
         } else {
             headerContentName.innerText = `${todayName}`;
         }
 
-        divHeaderContent.appendChild(headerContentDate);
         divHeaderContent.appendChild(headerContentName);
+        divHeaderContent.appendChild(headerContentDate);
 
         cardHeader.appendChild(divHeaderContent);
 
@@ -203,17 +198,18 @@ class ConversionDateName extends HTMLElement
         conversionsDiv.className = "row";
 
         const dropdownLanguageDiv = document.createElement("div");
+        dropdownLanguageDiv.className = "ml-1";
 
         const labelLanguage = document.createElement("label");
         labelLanguage.for = "language";
 
         const selectLanguage = document.createElement("select");
-        selectLanguage.className = "form-control";
+        selectLanguage.className = "form-control mt-2 mb-2";
         selectLanguage.name = "language";
 
         const choose = document.createElement("option");
         choose.disabled = true;
-        choose.innerText = "Choose calendar language";
+        choose.innerText = "Vyberte jazyk pre konverziu mien";
         const sk = document.createElement("option");
         sk.innerText = "SKd";
         sk.selected = true;
@@ -241,20 +237,24 @@ class ConversionDateName extends HTMLElement
         dropdownLanguageDiv.appendChild(labelLanguage);
 
         const dateConversionDiv = document.createElement("div");
-        dateConversionDiv.className = "list-group-item col mr-2 ml-2";
+        dateConversionDiv.className = "col-md-6";
+
+        const borderDateDiv = document.createElement("div");
+        borderDateDiv.className = "list-group-item mr-1 ml-1";
+        borderDateDiv.style.height = "18rem";
 
         const resultDateToName = document.createElement("textarea");
         resultDateToName.className = "form-control w-100 mt-3";
-        resultDateToName.placeholder = "Here will appear result of conversion.";
+        resultDateToName.placeholder = "Tu sa zobrazí výsledok konverzie";
         resultDateToName.rows = 2;
         resultDateToName.innerText = "";
 
-        const inputDate = this.createFormGroup("Find name for a given date", "text", "date", "Enter date");
+        const inputDate = this.createFormGroup("Vyhľadať meno alebo sviatok podľa dátumu", "text", "date", "Zadajte dátum");
 
         const dateToNameBtn = document.createElement("button");
         dateToNameBtn.id = "convertButton";
         dateToNameBtn.setAttribute("class", "btn btn-secondary mt-3");
-        dateToNameBtn.innerText = "Convert to name";
+        dateToNameBtn.innerText = "Konvertovať";
         dateToNameBtn.onclick = (event) => {
           event.preventDefault();
 
@@ -263,45 +263,54 @@ class ConversionDateName extends HTMLElement
 
               resultDateToName.innerHTML = `${this.searchName(parsedInputDate[0], parsedInputDate[1])}`;
           } else {
-              resultDateToName.innerHTML = `Date is not valid, conversion can not be performed`;
+              resultDateToName.innerHTML = `Dátum nie je v korektnom formáte`;
           }
         };
 
-        dateConversionDiv.appendChild(inputDate);
-        dateConversionDiv.appendChild(resultDateToName);
-        dateConversionDiv.appendChild(dateToNameBtn);
+        borderDateDiv.appendChild(inputDate);
+        borderDateDiv.appendChild(resultDateToName);
+        borderDateDiv.appendChild(dateToNameBtn);
+
+        dateConversionDiv.appendChild(borderDateDiv);
 
         const nameConversionDiv = document.createElement("div");
-        nameConversionDiv.className = "list-group-item col mr-2 ml-2";
+        nameConversionDiv.style.borderTop = "1px";
+        nameConversionDiv.style.borderColor = "#dfdfdf";
+        nameConversionDiv.className = "col-md-6";
 
+        const borderNameDiv = document.createElement("div");
+        borderNameDiv.className = "list-group-item mr-1 ml-1";
+        borderNameDiv.style.height = "18rem";
 
         const resultNameToDate = document.createElement("textarea");
         resultNameToDate.className = "form-control w-100 mt-3";
         resultNameToDate.rows = 2;
-        resultNameToDate.placeholder = "Here will appear result of conversion.";
+        resultNameToDate.placeholder = "Tu sa zobrazí výsledok konverzie";
         resultNameToDate.innerText = "";
 
-        const inputName = this.createFormGroup("Find date for a given name or holiday", "text", "name", "Enter name");
+        const inputName = this.createFormGroup("Vyhľadať dátum podľa mena alebo sviatku", "text", "name", "Zadajte meno alebo sviatok");
 
         const nameToDateBtn = document.createElement("button");
         nameToDateBtn.id = "convertButton";
         nameToDateBtn.setAttribute("class", "btn btn-secondary mt-3");
-        nameToDateBtn.innerText = "Convert to date";
+        nameToDateBtn.innerText = "Konvertovať";
         nameToDateBtn.onclick = (event) => {
             event.preventDefault();
 
             const findDate = this.searchDate(this._inputName);
 
             if (findDate === "") {
-                resultNameToDate.innerText = `Input not recognized in this calendar`;
+                resultNameToDate.innerText = `Výsledok pre zadaný vstup sa nenachádza v tomto kalendári`;
             } else {
                 resultNameToDate.innerText = `${findDate}`;
             }
         };
 
-        nameConversionDiv.appendChild(inputName);
-        nameConversionDiv.appendChild(resultNameToDate)
-        nameConversionDiv.appendChild(nameToDateBtn);
+        borderNameDiv.appendChild(inputName);
+        borderNameDiv.appendChild(resultNameToDate)
+        borderNameDiv.appendChild(nameToDateBtn);
+
+        nameConversionDiv.appendChild(borderNameDiv);
 
         form.appendChild(dropdownLanguageDiv);
         conversionsDiv.appendChild(dateConversionDiv);
