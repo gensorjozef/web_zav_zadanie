@@ -8,14 +8,46 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/style_menu.css">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/puzzle_france_styles.css">
 
     <script defer src="../components/menu_item.js"></script>
     <script defer src="../components/breadcrumbs.js"></script>
     <script defer src="../scripts/script_menu.js"></script>
+    <script defer src="../scripts/puzzle_france.js"></script>
 </head>
 <body>
 <menu-item></menu-item>
 <bread-crumbs></bread-crumbs>
-<p>ema</p>
+<div class="mt-2 game-area">
+    <div class="card custom-bg right-top">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-9">
+                    <h6 class="card-title" id="finish">Úlohou je poskladať mapu Francúzska</h6>
+                    <small class="card-subtitle font-weight-light text-muted">Vytvorila Emma Čavojová</small>
+                </div>
+                <div class="col-md-3">
+                    <div id="timer" class="align"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body d-flex justify-content-center">
+            <a id="play" class="btn btn-dark custom-btn mr-5">Hrať</a>
+            <a id="replay" class="btn btn-dark custom-btn">Odznova</a>
+            <a id="animate" class="btn btn-dark custom-btn ml-5">Demo</a>
+        </div>
+    </div>
+    <div id="match"></div>
+</div>
+<footer>
+    <div class="container-lg align-bottom">
+        <hr class="my-md-5">
+        <div class="row py-2 d-flex justify-content-center" id="footer">
+            <a href="kontakt.html" class="btn btn-outline-dark btn-md mb-4"><i class="fas fa-address-book"></i>&nbsp; Kontaktujte nás</a>
+            <p class="text-muted text-center mr-5 ml-5">© 2020 WEBTE1</p>
+            <a href="https://www.fei.stuba.sk/" target="_blank" class="btn btn-outline-dark btn-md mb-4"><i class="fas fa-university"></i>&nbsp;STU FEI</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

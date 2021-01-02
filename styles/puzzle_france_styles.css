@@ -1,0 +1,27 @@
+.piece {
+    position: absolute;
+    z-index: 3;
+}
+.card {
+    width: 28rem;
+    background-color: white;
+    color: black;
+}
+.custom-bg {
+    background-color: #ebebf2;
+}
+.custom-btn {
+    background-color: #274472;
+    border-color: #274472;
+}
+.align {
+    float: right;
+}
+.game-area {
+    height: 550px;
+}
+.right-top {
+    right: -9px;
+    top: 56px;
+    position: absolute;
+}
