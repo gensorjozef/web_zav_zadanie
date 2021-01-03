@@ -25,3 +25,17 @@
     top: 56px;
     position: absolute;
 }
+@media only screen and (max-width: 1125px) {
+    .right-top {
+        right: -9px;
+        top: 96px;
+        position: absolute;
+    }
+}
+@media only screen and (max-width: 705px) {
+    .right-top {
+        right: -9px;
+        top: 126px;
+        position: absolute;
+    }
+}
