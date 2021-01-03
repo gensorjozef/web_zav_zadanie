@@ -130,7 +130,7 @@ function createGameAuthor(game, list, index){
     let secondA = document.createElement("a")
     secondA.classList = "dropdown-item"
     secondA.setAttribute("href","")
-    secondA.textContent = game.autor + " \u00bb"
+    secondA.textContent = game.autor + " "
     second.appendChild(secondA)
     createGameName(game, second)
     list.appendChild(second)
