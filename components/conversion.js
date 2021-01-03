@@ -100,6 +100,9 @@ class ConversionDateName extends HTMLElement
                  }
                  if ((this._slovakNames[name][this._selectedLanguage] !== undefined)) {
                      result = `${this._slovakNames[name][this._selectedLanguage]} \n${result}`;
+                 } else {
+                     if (result !== "") result = `${result}`;
+                     else result = `Kalendár neobsahuje záznaam korešpondujúci so zadaným dátumom. \n${result}`;
                  }
                  break;
              }
@@ -167,7 +170,6 @@ class ConversionDateName extends HTMLElement
 
         const cardHeader = document.createElement("div");
         cardHeader.className = "card-header text-black";
-        // cardHeader.style.backgroundColor = "#eef0f2";
         cardHeader.style.backgroundColor = "#ebebf2";
 
         const divHeaderContent = document.createElement("div");

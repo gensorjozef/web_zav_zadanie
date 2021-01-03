@@ -2,13 +2,13 @@
   "games":
   [
     {
-      "src": "jozo_Game.html",
+      "src": "jozo_game.html",
       "autor": "Jožo",
       "nazov": "Názov hry Jožo",
       "popis": "Dlhší popis hry Jožo"
     },
     {
-      "src": "vlado_Game.html",
+      "src": "vlado_game.html",
       "autor": "Vlado",
       "nazov": "Puzzle Terraria",
       "popis": "Dlhší popis hry Vlado"
@@ -20,7 +20,7 @@
       "popis": "Given 12 uneven parts of map, find their correct arrangement to form France regions."
     },
     {
-      "src": "tomas_Game.html",
+      "src": "tomas_game.html",
       "autor": "Tomáš",
       "nazov": "Názov hry Tomáš",
       "popis": "Dlhší popis hry Tomáš"
