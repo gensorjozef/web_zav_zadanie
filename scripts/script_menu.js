@@ -15,29 +15,23 @@ document.addEventListener("DOMContentLoaded", () =>{
 
             });
             createMenu(menu , listAttr)
-            // jQuery code
-
-            //////////////////////// Prevent closing from click inside dropdown
-            $(document).on('click', '.dropdown-menu', function (e) {
-                e.stopPropagation();
+            jQuery(document).ready(function(){
+                jQuery('.dropdown-menu > li > .dropdown-menu').parent().addClass('dropdown-submenu').find(' > .dropdown-item').attr('href', 'javascript:;').addClass('dropdown-toggle');
+                jQuery('.dropdown-submenu > a').on("click", function(e) {
+                    var dropdown = $(this).parent().find(' > .show');
+                    jQuery('.dropdown-submenu .dropdown-menu').not(dropdown).removeClass('show');
+                    jQuery(this).next('.dropdown-menu').toggleClass('show');
+                    e.stopPropagation();
+                });
+                jQuery('.dropdown').on("hidden.bs.dropdown", function() {
+                    jQuery('.dropdown-menu.show').removeClass('show');
+                });
             });
 
-            // make it as accordion for smaller screens
-            if ($(window).width() < 992) {
-                $('.dropdown-menu a').click(function(e){
-                    e.preventDefault();
-                    if($(this).next('.submenu').length){
-                        $(this).next('.submenu').toggle();
-                    }
-                    $('.dropdown').on('hide.bs.dropdown', function () {
-                        $(this).find('.submenu').hide();
-                    })
-                });
-            }
-        })
-    $(document).ready(function() {
 
-    }); // jquery end
+
+        })
+
 })
 
 

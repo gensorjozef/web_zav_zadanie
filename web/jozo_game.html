@@ -1,34 +1,89 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Gumkáč Puzzle</title>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
             crossorigin="anonymous"></script>
 
-    <!-- Bootstrap files (jQuery first, then Popper.js, then Bootstrap JS) -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+
+    <script src="https://unpkg.com/konva@7.2.2/konva.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+    <script defer src="../components/conversion.js"></script>
+    <script defer src="../components/visit_counter.js"></script>
+    <script defer src="../components/menu_item.js"></script>
+    <script defer src="../scripts/script_menu.js"></script>
+    <script src="../components/breadcrumbs.js"></script>
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/style_menu.css">
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-    <script defer src="../components/menu_item.js"></script>
-    <script defer src="../components/breadcrumbs.js"></script>
-    <script defer src="../scripts/script_menu.js"></script>
+    <link rel="stylesheet" href="../styles/puzzle_gumkac.css">
+    <script src="../scripts/anime.min.js"></script>
+
+
+
 </head>
 <body>
 <menu-item></menu-item>
 <bread-crumbs></bread-crumbs>
-<p>jozo</p>
+
+
+<p id="stopwatch" class="timer">
+    00:00:00
+</p>
+<div id="container"></div>
+<div class="row justify-content-center">
+    <button type="button" class="btn btn-primary text-center demo"  data-toggle="modal" data-target="#exampleModal">Show demo</button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header  text-center">
+                <h5 class="col-12 modal-title text-center " id="exampleModalLabel">Demo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="../images/puzzle_gumkac/gumkac_black.png" height="401" width="258" alt="gumkac"/>
+                <img class="bag" src="../images/puzzle_gumkac/bag.png" height="70" width="76" alt="bag"/>
+                <img class="noha" src="../images/puzzle_gumkac/noha.png" height="67" width="78" alt="noha"/>
+                <img class="pierko" src="../images/puzzle_gumkac/pierko.png" height="53" width="29" alt="pierko"/>
+                <img class="ruka" src="../images/puzzle_gumkac/ruka.png" height="47" width="50" alt="ruka"/>
+                <img class="rukav" src="../images/puzzle_gumkac/rukav.png" height="72" width="59" alt="rukav"/>
+                <img class="slapka" src="../images/puzzle_gumkac/slapka.png" height="27" width="61" alt="slapka"/>
+                <img class="usko" src="../images/puzzle_gumkac/usko.png" height="31" width="29" alt="usko"/>
+                <img class="usta" src="../images/puzzle_gumkac/usta.png" height="14" width="35" alt="usta"/>
+            </div>
+            <div class="modal-footer">
+                <button id="start" type="button" class="btn btn-primary" >Start</button>
+                <button id="reset" type="button" class="btn btn-primary" >Reset</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 <footer>
     <div class="container-lg align-bottom">
         <hr class="my-md-5">
         <div class="row py-2 d-flex justify-content-center" id="footer">
-            <a href="contact_info.html" class="btn btn-outline-dark btn-md mb-4"><i class="fas fa-address-book"></i>&nbsp; Kontaktujte nás</a>
+            <a href="kontakt.html" class="btn btn-outline-dark btn-md mb-4"><i class="fas fa-address-book"></i>&nbsp; Kontaktujte nás</a>
             <p class="text-muted text-center mr-5 ml-5">© 2020 WEBTE1</p>
             <a href="https://www.fei.stuba.sk/" target="_blank" class="btn btn-outline-dark btn-md mb-4"><i class="fas fa-university"></i>&nbsp;STU FEI</a>
         </div>
     </div>
 </footer>
+<script src="../scripts/puzzle_gumkac.js"></script>
 </body>
 </html>
