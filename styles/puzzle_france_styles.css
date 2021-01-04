@@ -38,4 +38,8 @@
         top: 126px;
         position: absolute;
     }
+    .game-area {
+        margin-top: 400px;
+        height: 650px;
+    }
 }
