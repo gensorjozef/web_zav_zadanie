@@ -65,7 +65,7 @@ function createMenu(menu, listAttr){
     let home = document.createElement("a")
     home.classList = "navbar-brand"
     home.setAttribute("href","../web/index.html")
-    home.textContent = "Home"
+    home.textContent = "Domov"
     menu.appendChild(home)
     let button = document.createElement("button")
     button.classList = "navbar-toggler"
@@ -100,7 +100,7 @@ function createMenu(menu, listAttr){
     listItem.classList = "nav-link dropdown-toggle"
     listItem.setAttribute("data-toggle","dropdown")
     listItem.setAttribute("href","")
-    listItem.textContent = "  Games  "
+    listItem.textContent = "  Hry  "
     dropdown.appendChild(listItem)
 
     let listItem2 = document.createElement("visit-counter")
