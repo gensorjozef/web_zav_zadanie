@@ -349,7 +349,7 @@ class ConversionDateName extends HTMLElement
         const div = document.createElement("div");
 
         div.className = "tooltip-text";
-        div.innerHTML = "Please fill this field in format <br> d/dd.m/mm.yy/yyyy";
+        div.innerHTML = "Prosíme použite formát <br> d/dd.m/mm.yy/yyyy";
 
         return div;
     }
